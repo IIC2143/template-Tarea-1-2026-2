@@ -56,7 +56,7 @@ Muestra un ejemplo de cómo completaste tu archivo `.env`. Debe ser un ejemplo f
 No incluyas valores secretos en este README ni subas tu `.env` real al repositorio.
 
 ### 2. Generar los modelos
-
+**Hint**: No olvides utilizar, --skip-test-framework para evitar sobreescribir los tests.
 ```bash
 # Pega los comandos que usaste para generar Room, Student y Reservation.
 # Ejemplo: rails generate model Room ...

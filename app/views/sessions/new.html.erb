@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+  </head>
+  <body>
+    <main>
+      <h1>Login</h1>
+
+      <% if @login_attempt.errors.any? %>
+        <div role="alert">
+          <p>No se pudo procesar el login.</p>
+          <ul>
+            <% @login_attempt.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_with model: @login_attempt, url: "/login", method: :post, local: true, authenticity_token: false do |form| %>
+        <div>
+          <%= form.label :email, "Email" %>
+          <%= form.email_field :email, required: true, autocomplete: "username" %>
+        </div>
+
+        <div>
+          <%= form.label :password, "Password" %>
+          <%= form.password_field :password, required: true, autocomplete: "current-password" %>
+        </div>
+
+        <%= form.submit "Ingresar" %>
+      <% end %>
+    </main>
+  </body>
+</html>
